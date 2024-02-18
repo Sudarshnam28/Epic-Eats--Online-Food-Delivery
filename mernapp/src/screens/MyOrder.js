@@ -14,8 +14,8 @@ export default function MyOrder() {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body:JSON.stringify({
-                email:localStorage.getItem('userEmail')
+            body: JSON.stringify({
+                email: localStorage.getItem('userEmail')
             })
         }).then(async (res) => {
             let response = await res.json()
@@ -36,7 +36,7 @@ export default function MyOrder() {
             <div className='container'>
                 <div className='row'>
 
-                    {orderData !== {} ? Array(orderData).map(data => {
+                    {orderData !== null ? Array(orderData).map(data => {
                         return (
                             data.orderData ?
                                 data.orderData.order_data.slice(0).reverse().map((item) => {
@@ -85,8 +85,8 @@ export default function MyOrder() {
 
             </div>
             <div>
-            <Footer />
-        </div>
+                <Footer />
+            </div>
         </>
     )
 }
